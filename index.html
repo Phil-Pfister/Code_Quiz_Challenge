@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Super Fun Quiz Game</title>
 </head>
 <body>
+    <header class="header">
+        <div class="view-high-score">
+            <a href="">View Highscores</a>
+        </div>
+        <div class="start">
+            <button class="start-button" id="start">Start Game</button>
+        </div>
+        <div class="timer-section">
+            <p class="timer-text">Time:</p>
+            <p class="timer-count"></p>
+        </div>
+        
+        
+
+
+    </header>
+    <section id="quiz-box">
+        <h2>Coding Quiz</h2>
+        <div>
+            <p class="question"></p>
+        </div>
+        <div class="answer-list">
+            <button type="button" id="ans1" onclick="checkAnswer('A')"></button>
+            <button type="button" id="ans2" onclick="checkAnswer('B')"></button> 
+            <button type="button" id="ans3" onclick="checkAnswer('C')"></button> 
+            <button type="button" id="ans4" onclick="checkAnswer('D')"></button>                
+        </div>
+        <div class="answer-status">
+            <p></p>
+        </div>
+        
+
+    </section>
+
+    <section class="score-card">
+        <div class="high-scores">
+
+        </div>
+    </section>
 
     <script src="./assets/index.js"></script>
 </body>
