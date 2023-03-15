@@ -25,15 +25,15 @@
 
     </header>
     <section id="quiz-box">
-        <h2>Coding Quiz</h2>
+        <h1>Coding Quiz</h1>
         <div>
             <p class="question"></p>
         </div>
         <div class="answer-list">
-            <button type="button" id="ans1" onclick="checkAnswer('A')"></button>
-            <button type="button" id="ans2" onclick="checkAnswer('B')"></button> 
-            <button type="button" id="ans3" onclick="checkAnswer('C')"></button> 
-            <button type="button" id="ans4" onclick="checkAnswer('D')"></button>                
+            <button class="ans-button" type="button" id="ans1" onclick="checkAnswer('A')"></button>
+            <button class="ans-button" type="button" id="ans2" onclick="checkAnswer('B')"></button> 
+            <button class="ans-button" type="button" id="ans3" onclick="checkAnswer('C')"></button> 
+            <button class="ans-button" type="button" id="ans4" onclick="checkAnswer('D')"></button>                
         </div>
         <div class="answer-status">
             <p></p>
@@ -42,8 +42,28 @@
 
     </section>
 
+    <section class="game-over">
+        <h2 class="game-over-text">Game Over!</h2>
+        <h3 class="your-score">Your Score:</h3>
+        <h3 id="final-score"></h3><br>
+        <h3 class="prompt">Add your initials to the scoreboard!</h3>
+        <form class="input-box">
+            <input type="text" class="user-input" id="user-input" placeholder="Enter your initials here!">
+            <button class="input-initials">Submit</button>
+        </form>
+
+    </section>
+
     <section class="score-card">
+        <h2>Score Board</h2>
+        <h3>Top Scores</h3>
         <div class="high-scores">
+            <ul id="scores">
+
+
+            </ul>
+
+
 
         </div>
     </section>
