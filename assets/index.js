@@ -1,4 +1,6 @@
-var header = document.querySelector(".header")
+    // variables
+var header = document.querySelector(".header");
+var viewScore = document.querySelector(".view-high-score")
 var quizBox = document.querySelector("#quiz-box");
 var answerList = document.querySelector(".answer-list");
 var questionBox = document.querySelector(".question");
@@ -18,16 +20,12 @@ var answerStatus = document.querySelector(".answer-status");
 var inputButton = document.querySelector(".input-initials");
 var userInput = document.getElementById("user-input");
 var scores = document.getElementById("scores");
-// var question1 = "Which of the following is not a javascript data type?";
-// var ans1 = ['string', 'array', 'subject', 'number'] // = subject (2)
-// var question2 = "Which property in CSS would you use to underline a word?";
-// var ans2 =  ['text-decoration', 'font-style', 'font-decoration', 'text-emphasis'] // = text-decoration (0)
-// var question3 = 'The process of combining strings and/or variables together is called?';
-// // Joining, concatenation, Javascript, JSON = concatenation (1)
-// var question4 = "Which of the following describes a blueprint of a website's layout?";
-// // Div, Syntax, Container, Wireframe - Wireframe (3)
-// var question5 = "Which array method is used to replace existing elements with new elemts in place?";
-// // splice, slice, unshift, pop = splice (0)
+var resetButton = document.querySelector("#reset-button");
+var clearButton = document.querySelector("#clear-scores");
+
+  //sets style for opening page with rules
+quizBox.setAttribute("style", "max-width: 800px; margin: 100px auto; border: solid black;");
+  // questions and answers object array
 var allQuestions = [
   {
     ques: 'Which of the following is not a javascript data type?',
@@ -80,15 +78,41 @@ var lastQuestionIndex = allQuestions.length - 1;
  var userScore;
  var listItem = document.createElement("li");
 
+ //function for page load with startgame button event
+
+function init() {
+  questionBox.innerHTML = rules;
+  
+  timeLeft.textContent = 75;
+  start.addEventListener("click", startGame);
+  answerList.style.display = "none";
+}
+
+
+ // function to display scoreboard
+
 function showScore() {
   header.style.visibility = "hidden";
   quizBox.style.display = "none";
   gameOver.style.display = "none";
   scoreCard.style.display = "block";
   
+  
 }
 
+// button and click events
+viewScore.addEventListener("click", showScore);
 
+resetButton.addEventListener("click", function() {
+  window.location.reload();
+});
+clearButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  scores.removeChild(listItem);
+  localStorage.clear();
+});
+
+// function to call the questions
 function renderQuestion() {
   if (runningQuestionIndex > lastQuestionIndex) {
     endGame();
@@ -103,7 +127,7 @@ function renderQuestion() {
   }
   
 }
-
+// function to display score
 function endGame() {
   header.style.visibility = "hidden";
   quizBox.style.display = "none";
@@ -117,7 +141,7 @@ function endGame() {
       player: userInput.value,
       score: timerCount
     };
-
+    //stores and calls name and score for scoreboard
     localStorage.setItem("userScore", JSON.stringify(userScore));
     showScore();
     var lastScore = JSON.parse(localStorage.getItem("userScore"));
@@ -132,62 +156,34 @@ function endGame() {
 } 
 
 
-
-quizBox.setAttribute("style", "max-width: 800px; margin: 100px auto; border: solid black;");
-
-
-
-    
-
-    
-
-
-function init() {
-    questionBox.innerHTML = rules;
-    
-    timeLeft.textContent = 75;
-    start.addEventListener("click", startGame);
-    answerList.style.display = "none";
-}
+// displayes quuestions and starts timer
 
 function startGame() {
   answerList.style.display = "block";
-    // isWin = false;
+    
     timerCount = 75;
-    // Prevents start button from being clicked when round is in progress
-    // startButton.disabled = true;
     
     startTimer();
     playGame();
   }
 
+  // functions to call question after timer starts
+
 function playGame() {
   
     renderQuestion();
     
-  
-  
-  
-
 }
 
 
-
+// timer function with rules on time running out
 
 function startTimer() {
     // Sets timer
     timer = setInterval(function() {
       timerCount--;
       timeLeft.textContent = timerCount;
-    //   if (timerCount = 0) {
-        // // Tests if win condition is met
-        // if (isWin && timerCount > 0) {
-        //   // Clears interval and stops timer
-        //   clearInterval(timer);
-        //   winGame();
-        // }
-    //   }
-      // Tests if time has run out
+   
       if (timerCount === 0) {
         // Clears interval
         clearInterval(timer);
@@ -196,8 +192,9 @@ function startTimer() {
     }, 1000);
   }
 
-  function checkAnswer(answer) {
     // check if correct response was entered
+  function checkAnswer(answer) {
+    
      if (allQuestions[runningQuestionIndex].correct == answer) {
       answerStatus.textContent = "Correct";
       runningQuestionIndex++
@@ -212,7 +209,7 @@ function startTimer() {
   }
 
  
-  
+//  on page load
   init();
 
 

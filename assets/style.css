@@ -1,3 +1,5 @@
+/* Universal element CSS */
+
 body {
     background-color: #F7F1E5;
 }
@@ -14,6 +16,8 @@ h1 {
 p {
     font-size: 1.2rem;
 }
+
+    /* game start css */
 
 #start {
     background-color: #898121;
@@ -32,7 +36,7 @@ p {
     background-color: #E7B10A;
 }
 
-
+    /* Question and Answer CSS */
 
 .answer-list {
     display: block;
@@ -44,6 +48,8 @@ p {
     margin: 1rem;
     
 }
+
+    /* game over CSS */
 
 .score-card {
     display: none;
@@ -60,6 +66,12 @@ p {
     text-align: center;
 }
 
+.game-over-text {
+    display: block;
+
+}
+
+    /* scoreboard css */
 #user-input {
     height:20px;
     font-size:14pt;
@@ -72,10 +84,7 @@ p {
     color: white;
 }
 
-.game-over-text {
-    display: block;
 
-}
 
 .your-score,
 #final-score {
