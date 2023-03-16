@@ -60,7 +60,7 @@ var allQuestions = [
     correct: 'D'
   },
   {
-    ques: "Which array method is used to replace existing elements with new elemts in place?",
+    ques: "Which array method is used to replace existing elements with new elements in place?",
     opt1: 'slice',
     opt2: 'splice',
     opt3: 'unshift',
@@ -77,6 +77,7 @@ var timerCount;
 var lastQuestionIndex = allQuestions.length - 1;
  var userScore;
  var listItem = document.createElement("li");
+ 
 
  //function for page load with startgame button event
 
@@ -86,6 +87,19 @@ function init() {
   timeLeft.textContent = 75;
   start.addEventListener("click", startGame);
   answerList.style.display = "none";
+}
+
+// render scores function
+function renderScores() {
+scores.innerHTML = "";
+
+for (var i = 0; i < listItem.length; i++) {
+  var liItem = listItem[i];
+  var li = document.createElement("li");
+  li.textContent = liItem;
+  li.setAttribute("data-index", i);
+  scores.appendChild(li);
+}
 }
 
 
@@ -145,7 +159,7 @@ function endGame() {
     localStorage.setItem("userScore", JSON.stringify(userScore));
     showScore();
     var lastScore = JSON.parse(localStorage.getItem("userScore"));
-    listItem.textContent = lastScore.player + " - " + lastScore.score;
+    listItem.textContent = lastScore.player + " = " + lastScore.score;
     scores.appendChild(listItem);
   });
 
