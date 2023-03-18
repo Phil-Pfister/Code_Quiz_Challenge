@@ -26,7 +26,7 @@ var userScoreList = [];
 
   //sets style for opening page with rules
 quizBox.setAttribute("style", "max-width: 800px; margin: 100px auto; border: solid black;");
-  // questions and answers object array
+  // questions and answers object array, format credit to "Code Explained you tube channel"
 var allQuestions = [
   {
     ques: 'Which of the following is not a javascript data type?',
@@ -111,7 +111,7 @@ resetButton.addEventListener("click", function() {
 });
 
 
-// function to call the questions
+// function to call the questions - Format credit to Code Eplained you tube channel
 function renderQuestion() {
   if (runningQuestionIndex > lastQuestionIndex) {
     endGame();
