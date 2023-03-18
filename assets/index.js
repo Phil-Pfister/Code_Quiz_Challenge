@@ -201,11 +201,13 @@ function startTimer() {
     
      if (allQuestions[runningQuestionIndex].correct == answer) {
       answerStatus.textContent = "Correct";
+      answerStatus.style.color = "green";
       runningQuestionIndex++
       renderQuestion();
     } else if (allQuestions[runningQuestionIndex].correct !== answer) {
       timerCount -= 15;
       answerStatus.textContent = "Wrong Answer";
+      answerStatus.style.color = "red";
       runningQuestionIndex++;
       renderQuestion();
     } 
