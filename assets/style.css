@@ -17,6 +17,17 @@ p {
     font-size: 1.2rem;
 }
 
+li {
+    background-color: #898121;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    list-style-type: none;
+    text-align: justify;
+    margin-right: 100px;
+
+}
+
     /* game start css */
 
 #start {

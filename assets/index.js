@@ -22,6 +22,7 @@ var userInput = document.getElementById("user-input");
 var scores = document.getElementById("scores");
 var resetButton = document.querySelector("#reset-button");
 var clearButton = document.querySelector("#clear-scores");
+var userScoreList = [];
 
   //sets style for opening page with rules
 quizBox.setAttribute("style", "max-width: 800px; margin: 100px auto; border: solid black;");
@@ -75,8 +76,9 @@ var runningQuestionIndex = 0;
 var timer;
 var timerCount;
 var lastQuestionIndex = allQuestions.length - 1;
- var userScore;
- var listItem = document.createElement("li");
+
+ 
+ 
  
 
  //function for page load with startgame button event
@@ -87,30 +89,17 @@ function init() {
   timeLeft.textContent = 75;
   start.addEventListener("click", startGame);
   answerList.style.display = "none";
+  displayHighScores();
+  
 }
 
-// render scores function
-function renderScores() {
-scores.innerHTML = "";
-
-for (var i = 0; i < listItem.length; i++) {
-  var liItem = listItem[i];
-  var li = document.createElement("li");
-  li.textContent = liItem;
-  li.setAttribute("data-index", i);
-  scores.appendChild(li);
-}
-}
-
-
- // function to display scoreboard
-
+// displays scoreboard
 function showScore() {
   header.style.visibility = "hidden";
   quizBox.style.display = "none";
   gameOver.style.display = "none";
   scoreCard.style.display = "block";
-  
+  displayHighScores();
   
 }
 
@@ -120,11 +109,7 @@ viewScore.addEventListener("click", showScore);
 resetButton.addEventListener("click", function() {
   window.location.reload();
 });
-clearButton.addEventListener("click", function(event) {
-  event.preventDefault();
-  scores.removeChild(listItem);
-  localStorage.clear();
-});
+
 
 // function to call the questions
 function renderQuestion() {
@@ -155,12 +140,13 @@ function endGame() {
       player: userInput.value,
       score: timerCount
     };
+    userScoreList.push(userScore);
     //stores and calls name and score for scoreboard
-    localStorage.setItem("userScore", JSON.stringify(userScore));
+    
+
+    storeScores();
     showScore();
-    var lastScore = JSON.parse(localStorage.getItem("userScore"));
-    listItem.textContent = lastScore.player + " = " + lastScore.score;
-    scores.appendChild(listItem);
+    
   });
 
 
@@ -168,6 +154,10 @@ function endGame() {
 
 
 } 
+
+function storeScores() {
+  localStorage.setItem("userScoreList", JSON.stringify(userScoreList));
+}
 
 
 // displayes quuestions and starts timer
@@ -219,6 +209,31 @@ function startTimer() {
       runningQuestionIndex++;
       renderQuestion();
     } 
+    
+  }
+
+  function displayHighScores() {
+    var userScoreList = JSON.parse(localStorage.getItem("userScoreList"));
+   
+    for (var i = 0; i < userScoreList.length; i++) {
+      var high = userScoreList[i];
+
+      var listItem = document.createElement("li");
+      listItem.textContent = high.player + "     =     " + high.score;
+      listItem.setAttribute("data-index", i);
+      scores.appendChild(listItem);
+    }
+    clearButton.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      scores.removeChild(listItem);
+      localStorage.clear();
+
+      
+    });
+    
+    
+    
     
   }
 

@@ -8,7 +8,10 @@ The quiz begins with a set of rules de=isplayed on the page: you have 75 seconds
 
 ## Screen Shots
 
-
+![Shot of open page](./assets/images/quiz-open.png)
+![Shot of game play](./assets/images/quiz2.png)
+![Shot of result page](./assets/images/quiz3.png)
+![Shot of scoreboard](./assets/images/quiz4.png)
 
 ## Credits
 
