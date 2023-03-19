@@ -2,7 +2,7 @@
 
 This is a 5 question timed quiz to test ones knowledge of coding.
 
-## description
+## Description
 
 The quiz begins with a set of rules displayed on the page: you have 75 seconds to answer five questions. For every wrong answer the clock loses fifteen seconds . Your score is the amount of time left on the clock after you answer the last question. If the clock runs to zero then the game ends and your score is zero. This quiz relies mainly on javascript to run and has some basic HTML and CSS.  Much of the content and some styling is created in and delivered by Javascript.
 
