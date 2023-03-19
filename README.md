@@ -19,7 +19,7 @@ Navigate to the website [https://phil-pfister.github.io/Code_Quiz_Challenge/](ht
 
 ## Credits
 
-I used the tools that I've learned in Rice university Boot Camp as well as research in MDN, Stack Overflow and W3 schools online.  I also watched a video from the CodeExplained youtube channel that had similar aspects to this project [https://www.youtube.com/watch?v=49pYIMygIcU](https://www.youtube.com/watch?v=49pYIMygIcU).
+I used the tools that I've learned in Rice university Boot Camp as well as research in MDN, Stack Overflow and W3 schools online.  I also watched a video from the CodeExplained youtube channel that had similar aspects to this project [https://www.youtube.com/watch?v=49pYIMygIcU](https://www.youtube.com/watch?v=49pYIMygIcU). I also recieved local storage help from David Elutilo during a tutoring session on March 19th 2023.
 
 [MDN](https://developer.mozilla.org/en-US/)
 

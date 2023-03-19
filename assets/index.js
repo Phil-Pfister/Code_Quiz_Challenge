@@ -136,7 +136,7 @@ function endGame() {
   inputButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    const existingScores = JSON.parse(localStorage.getItem('userScoreList')) || []
+    const existingScores = JSON.parse(localStorage.getItem('userScoreList')) || [] // credit to David Elutilo for helping me understand this!
 
     var userScore = {
       player: userInput.value,
