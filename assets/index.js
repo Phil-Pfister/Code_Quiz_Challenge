@@ -128,6 +128,9 @@ function renderQuestion() {
 }
 // function to display score and a button to add score to scoreboard
 function endGame() {
+  if (timerCount < 0) {
+    timerCount = 0;
+  }
   header.style.visibility = "hidden";
   quizBox.style.display = "none";
   gameOver.style.display = "block";
@@ -201,6 +204,10 @@ function startTimer() {
       runningQuestionIndex++;
       renderQuestion();
     } 
+    if (timerCount < 0) {
+      clearInterval(timer);
+      endGame();
+    }
     
   }
     
