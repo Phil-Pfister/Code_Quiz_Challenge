@@ -4,7 +4,7 @@ This is a 5 question timed quiz to test ones knowledge of coding.
 
 ## description
 
-The quiz begins with a set of rules de=isplayed on the page: you have 75 seconds to answer five questions. For every wrong answer the clock loses fifteen seconds . Your score is the amount of time left on the clock after you answer the last question. If the clock runs to zero then the game ends and your score is zero. This quiz relies mainly on javascript to run and has very little HTML and CSS.  Much of the styling and content is created in and delivered by Javascript.
+The quiz begins with a set of rules displayed on the page: you have 75 seconds to answer five questions. For every wrong answer the clock loses fifteen seconds . Your score is the amount of time left on the clock after you answer the last question. If the clock runs to zero then the game ends and your score is zero. This quiz relies mainly on javascript to run and has some basic HTML and CSS.  Much of the content and some styling is created in and delivered by Javascript.
 
 ## Installation 
 
@@ -19,11 +19,13 @@ Navigate to the website [https://phil-pfister.github.io/Code_Quiz_Challenge/](ht
 
 ## Credits
 
-I used the tools that I've learned in Rice university Boot Camp as well as research in MDN and W3 schools online.  I also watched a video from the CodeExplained youtube channel that had similar aspects to this project [https://www.youtube.com/watch?v=49pYIMygIcU](https://www.youtube.com/watch?v=49pYIMygIcU).
+I used the tools that I've learned in Rice university Boot Camp as well as research in MDN, Stack Overflow and W3 schools online.  I also watched a video from the CodeExplained youtube channel that had similar aspects to this project [https://www.youtube.com/watch?v=49pYIMygIcU](https://www.youtube.com/watch?v=49pYIMygIcU).
 
 [MDN](https://developer.mozilla.org/en-US/)
 
 [W3 school](https://www.w3schools.com/)
+
+[Stack Overflow](https://stackoverflow.com/)
 
 ## License
 

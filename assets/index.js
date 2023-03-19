@@ -72,7 +72,7 @@ var allQuestions = [
 
 
 
-var runningQuestionIndex = 0;
+var runningQuestionIndex;
 var timer;
 var timerCount;
 var lastQuestionIndex = allQuestions.length - 1;
@@ -89,7 +89,7 @@ function init() {
   timeLeft.textContent = 75;
   start.addEventListener("click", startGame);
   answerList.style.display = "none";
-  displayHighScores();
+ // displayHighScores();
   
 }
 
@@ -126,7 +126,7 @@ function renderQuestion() {
   }
   
 }
-// function to display score
+// function to display score and a button to add score to scoreboard
 function endGame() {
   header.style.visibility = "hidden";
   quizBox.style.display = "none";
@@ -136,49 +136,37 @@ function endGame() {
   inputButton.addEventListener("click", function(event) {
     event.preventDefault();
 
+    const existingScores = JSON.parse(localStorage.getItem('userScoreList')) || []
+
     var userScore = {
       player: userInput.value,
       score: timerCount
     };
-    userScoreList.push(userScore);
+    existingScores.push(userScore);
     //stores and calls name and score for scoreboard
-    
+    localStorage.setItem("userScoreList", JSON.stringify(existingScores));
 
-    storeScores();
+    
     showScore();
     
   });
 
-
-
-
-
 } 
 
-function storeScores() {
-  localStorage.setItem("userScoreList", JSON.stringify(userScoreList));
-}
 
 
-// displayes quuestions and starts timer
+// displayes questions and starts timer
 
 function startGame() {
+  // quizBox.style.display = "block"
   answerList.style.display = "block";
-    
+  // scoreCard.style.display = "none";
+  runningQuestionIndex = 0;
     timerCount = 75;
     
     startTimer();
-    playGame();
-  }
-
-  // functions to call question after timer starts
-
-function playGame() {
-  
     renderQuestion();
-    
-}
-
+  }
 
 // timer function with rules on time running out
 
@@ -201,18 +189,22 @@ function startTimer() {
     
      if (allQuestions[runningQuestionIndex].correct == answer) {
       answerStatus.textContent = "Correct";
-      answerStatus.style.color = "green";
+      answerStatus.style.color = "white";
+      answerStatus.style.backgroundColor = "green";
       runningQuestionIndex++
       renderQuestion();
     } else if (allQuestions[runningQuestionIndex].correct !== answer) {
       timerCount -= 15;
       answerStatus.textContent = "Wrong Answer";
-      answerStatus.style.color = "red";
+      answerStatus.style.color = "white";
+      answerStatus.style.backgroundColor = "red";
       runningQuestionIndex++;
       renderQuestion();
     } 
     
   }
+    
+  // function to display scoreboard
 
   function displayHighScores() {
     var userScoreList = JSON.parse(localStorage.getItem("userScoreList"));
@@ -221,26 +213,21 @@ function startTimer() {
       var high = userScoreList[i];
 
       var listItem = document.createElement("li");
-      listItem.textContent = high.player + "     =     " + high.score;
+      listItem.textContent = high.player + "  =     " + high.score;
       listItem.setAttribute("data-index", i);
       scores.appendChild(listItem);
     }
     clearButton.addEventListener("click", function(event) {
       event.preventDefault();
 
-      scores.removeChild(listItem);
+      scores.style.display = 'none';
       localStorage.clear();
 
       
     });
     
-    
-    
-    
   }
-
- 
-//  on page load
+    //  on page load
   init();
 
 
